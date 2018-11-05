@@ -53,21 +53,39 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
 		ya se lió... </aside>
 	      </section>
 
-	 <section
-		data-background='https://farm3.staticflickr.com/2011/2332987323_9f21439826_b_d.jpg'
-		 alt='big red button'>
-		<aside class="notes">Volvemos al
-		  botón: desde una máquina virtual
-		  "vacía", sin provisionar, el botón
-		  activa las diferentes etapas del
-		  pipeline para que esa  máquina virtual
-		  en la nube se pueda provisionar desde 0 y que lo que se
-		  despliegue se sepa que va a
-		  funcionar porque ha pasado los tests
-		  (y, en su caso, la aprobación del
-		  cliente).</aside>
-	      </section>
+	<section
+	   data-background='https://farm3.staticflickr.com/2011/2332987323_9f21439826_b_d.jpg'
+	   alt='big red button'>
+	  <aside class="notes">Volvemos al
+	    botón: desde una máquina virtual
+	    "vacía", sin provisionar, el botón
+	    activa las diferentes etapas del
+	    pipeline para que esa  máquina virtual
+	    en la nube se pueda provisionar desde 0 y que lo que se
+	    despliegue se sepa que va a
+	    funcionar porque ha pasado los tests
+	    (y, en su caso, la aprobación del
+	    cliente).</aside>
+	</section>
 
+	<section data-background='https://farm9.staticflickr.com/8148/6968785356_e13058ab14_o_d.jpg'>
+	  <h1>Consigue una máquina virtual</h1>
+<pre><code>Vagrant.configure("2") do |config|
+  config.vm.box = "debian/jessie64"
+end
+</code></pre>
+
+<aside class='notes'>Puede ser una máquina virtual en la nube, o en general cualquiera a la que tengas acceso.</aside>
+	</section>
+
+	<section>
+	  <h1>Ansible está escrito en Python</h1>
+	  <img src='img/ansible.png' alt='ansible'>
+	  <aside class='notes'>Descárgalo como biblioteca usando pip, o directamente como un paquete Debian o Ubuntu.</aside>
+	</section>
+
+	<section>
+	</section>
       </div>
     </div>
 
