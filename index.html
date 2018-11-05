@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/extra.css">
-    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -75,13 +75,36 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
 end
 </code></pre>
 
-<aside class='notes'>Puede ser una máquina virtual en la nube, o en general cualquiera a la que tengas acceso.</aside>
+<aside class='notes'>Puede ser una máquina virtual en la nube, o en general cualquiera a la que tengas acceso. Todo el código y scripts están en el <a href='code/'>directorio <code>code</code></a></aside>
 	</section>
 
 	<section>
-	  <h1>Ansible está escrito en Python</h1>
+	  <h2>Ansible está escrito en Python</h2>
 	  <img src='img/ansible.png' alt='ansible'>
 	  <aside class='notes'>Descárgalo como biblioteca usando pip, o directamente como un paquete Debian o Ubuntu.</aside>
+	</section>
+
+	<!-- Configuración -->
+	<section>
+	  <section><h1>Configuración básica: <code>ansible.cfg</code></h1>
+	    <pre><code>[defaults]
+host_key_checking = False
+inventory = ./ansible_hosts
+	    </code></pre>
+	    <aside class='notes'><a href='https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#host-key-checking'>El primer comando</a> evita problemas cuando se usa el mismo host con diferentes keys, como suele suceder en la nube. El segundo declara un fichero de hosts, a continuación.
+	    </aside>
+	  </section>
+
+	  <section><h1>Inventariando los <em>hosts</em></h1>
+	  <pre><code>[vagrantboxes]
+jessie ansible_ssh_port=2222 ansible_ssh_host=127.0.0.1
+
+[vagrantboxes:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key
+	  </code></pre>
+	  <aside class='notes'>Declaramos un jost <code>jessie</code> con las características habituales en Vagrant. La clave aquí es la clave privada que estamos usando para conectarnos al mismo. Ansible se conecta por ssh a los guests y a cualquiera que tengamos acceso por ssh es alcanzable. También usa autenticación por password y demás, pero este modo es mucho más conveniente.</aside>
+	  </section>
 	</section>
 
 	<section>
