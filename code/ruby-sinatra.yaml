@@ -1,6 +1,6 @@
 ---
 - hosts: jessie
-  sudo: yes
+  become: sudo
   tasks:
     - name: Instala Ruby
       apt: pkg=ruby-full state=present
