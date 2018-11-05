@@ -1,0 +1,8 @@
+---
+- hosts: jessie
+  sudo: yes
+  tasks:
+    - name: Instala Ruby
+      apt: pkg=ruby-full state=present
+    - name: Instala sinatra
+      apt: pkg=ruby-sinatra state=present

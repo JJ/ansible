@@ -153,7 +153,27 @@ ansible_ssh_user=vagrant
 
 	<!-- Provisionando -->
 	<section>
-	  
+	  <section>
+	    <h1>Ansible provisiona</h1>
+	    <aside class='notes'>Vamos a ejecutar <a href='https://docs.ansible.com/ansible/2.5/network/getting_started/first_playbook.html'><em>playbooks</em></a>, o recetas para provisionar un nodo.</aside>
+	  </section>
+
+	  <section><h1>Playbook para todos</h1>
+	    <pre><code>---
+- hosts: all
+  become: sudo
+  tasks:
+    - name: Instala git
+      apt: pkg=git state=present
+	    </code></pre>
+
+	    <aside class='notes'>Se asegura que el paquete git de Debian está presente para todos.</aside>
+	  </section>
+
+	  <section><h1>Éxito total</h1>
+	    <img src='img/git.png' alt='Git instalado'>
+	  </section>
+
 	</section>
 	<!-- Créditos -->
 
