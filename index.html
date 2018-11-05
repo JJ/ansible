@@ -105,10 +105,37 @@ ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key
 	  </code></pre>
 	  <aside class='notes'>Declaramos un jost <code>jessie</code> con las características habituales en Vagrant. La clave aquí es la clave privada que estamos usando para conectarnos al mismo. Ansible se conecta por ssh a los guests y a cualquiera que tengamos acceso por ssh es alcanzable. También usa autenticación por password y demás, pero este modo es mucho más conveniente.</aside>
 	  </section>
+
+	  <section data-background='https://farm2.staticflickr.com/1888/43689256934_2a5c2788b2_k_d.jpg' alt='bola'>
+	    <h2>Comprobaciones básicas</h2>
+	    <pre><code>ansible all -m ping</code></pre>
+	    <img src='img/ping.png' alt='captura ping-pong'>
+	  </section>
 	</section>
 
-	<section>
+	<section><h2>Pero para ese viaje...</h2>
+	  <pre><code>Vagrant.configure("2") do |config|
+  config.vm.define "m1" do |m1|
+    m1.vm.box = "debian/jessie64"
+  end
+  config.vm.define "m2" do |m2|
+    m2.vm.box = "debian/jessie64"
+  end
+end
+	  </code></pre>
 	</section>
+
+	<section><h2>Configurando de nuevo</h2>
+	  <pre><code>[vagrantboxes]
+jessie
+m1
+m2
+
+[vagrantboxes:vars]
+ansible_ssh_port=2222
+ansible_ssh_host=127.0.0.1
+ansible_ssh_user=vagrant
+	      ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key</code></pre>
       </div>
     </div>
 
