@@ -37,6 +37,11 @@ src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
 	  <h2><code>@jjmerelo</code> para <a href='https://www.meetup.com/es-ES/Granada-Geek/'>Granada Geek</a> + @iv_gii</h2>
 	</section>
 
+	<section data-background='https://farm4.staticflickr.com/3254/3149071638_03ed80bea3_o_d.jpg'><h1>Ursula K. Leguin y la comunicación hiperlumínica.</h1>
+	  <aside class='notes'>Introducida por la autora, con ese nombre, en
+	    <a href='https://es.wikipedia.org/wiki/Ansible'>El mundo de Rocannon</a>, pero usada también por Orson Scott Card y otros.</aside>
+	</section>
+	
 	<section 
 	   data-background='https://farm4.staticflickr.com/3092/3085157011_4560528e9e_b_d.jpg' alt='gran botón rojo'>
 		<h1>La importancia del botón</h1>
@@ -113,7 +118,8 @@ ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key
 	  </section>
 	</section>
 
-	<section><h2>Pero para ese viaje...</h2>
+	<section>
+	  <section><h2>Pero para ese viaje...</h2>
 	  <pre><code>Vagrant.configure("2") do |config|
   config.vm.define "m1" do |m1|
     m1.vm.box = "debian/jessie64"
@@ -130,16 +136,37 @@ end
 jessie
 m1
 m2
-
 [vagrantboxes:vars]
 ansible_ssh_port=2222
 ansible_ssh_host=127.0.0.1
 ansible_ssh_user=vagrant
 	      ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key</code></pre>
+	</section>
+
+	<section><h2>Hagamos algo</h2>
+	  <pre><code>ansible all -a "df"</code></pre>
+	  <img src='img/df.png' alt='Ejecutando df'>
+	  <aside class='notes'>Empezamos a ver la potencia de Ansible como ejecutador remoto</aside>
+	</section>
+
+	</section>
+
+	<!-- Créditos -->
+
+	    <section><h1>Créditos</h1>
+      <ul class='credits'><li><a href='https://www.flickr.com/photos/timberland/3149071638/'>Foto de Ursula K. Leguin por Timberland Regional Library</a></li>
+	<li class='credits'>
+	  <a href='https://www.flickr.com/photos/wlodi/3085157011'>Botón
+		    rojo por włodi</a>.</li>
+	<li class='credits'><a href='https://www.flickr.com/photos/rev_aviator/2332987323'>Botón rojo de Gord Spence</a></li>
+
+      </ul>
+    </section>
+
       </div>
     </div>
 
-		<script src="lib/js/head.min.js"></script>
+    <script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
