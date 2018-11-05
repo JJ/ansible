@@ -161,7 +161,7 @@ ansible_ssh_user=vagrant
 	  <section><h1>Playbook para todos</h1>
 	    <pre><code>---
 - hosts: all
-  become: sudo
+  become: yes
   tasks:
     - name: Instala git
       apt: pkg=git state=present
@@ -174,9 +174,43 @@ ansible_ssh_user=vagrant
 	    <img src='img/git.png' alt='Git instalado'>
 	  </section>
 
+	  <section><h1>Instalando gemas</h1>
+<pre><code>---
+- hosts: jessie
+  become: yes
+  tasks:
+    - name: Instala Ruby
+      apt: pkg=ruby-full state=present
+    - name: Instala sinatra
+      apt: pkg=ruby-sinatra state=present
+    - gem:
+        name: httparty
+        state: latest	    
+</code></pre>
+	  </section>
+
+	  <section><h1>Más éxitos</h1>
+	    <img src='img/exito3.png' alt='exito con gema'>
+	  </section>
+	  
 	</section>
+
+	<section>
+	  <h1>A dónde ir desde aquí</h1>
+	  <h2 class='fragment'>Roles</h2>
+	  <h2 class='fragment'>Plantillas Jinja</h2>
+	  <h2 class='fragment'>Orquestación con Vagrant</h2>
+	</section>
+
+
+	<section data-background='https://farm1.staticflickr.com/153/429589744_f4e89721a5_b_d.jpg' alt='mapamundi de código'>
+	  <h1>Ansible: configuración fácil/masiva de máquinas virtuales.</h1>
+	  <h2 class='fragment'>¡Infraestructura como código!</h2>
+	</section>
+	
 	<!-- Créditos -->
 
+	
 	    <section><h1>Créditos</h1>
       <ul class='credits'><li><a href='https://www.flickr.com/photos/timberland/3149071638/'>Foto de Ursula K. Leguin por Timberland Regional Library</a></li>
 	<li class='credits'>

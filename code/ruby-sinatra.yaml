@@ -1,8 +1,11 @@
 ---
 - hosts: jessie
-  become: sudo
+  become: yes
   tasks:
     - name: Instala Ruby
       apt: pkg=ruby-full state=present
     - name: Instala sinatra
       apt: pkg=ruby-sinatra state=present
+    - gem:
+        name: httparty
+        state: latest
